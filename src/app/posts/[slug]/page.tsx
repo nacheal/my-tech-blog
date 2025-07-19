@@ -25,9 +25,15 @@ async function getPost(slug: string) {
 export default async function PostPage({ params }: Props) {
   const restparams = await params
   console.log('restparams', restparams)
-  const { slug = "" } = await params; // Await the params object
+  const { slug } = await params; // Await the params object
+
+  if (!slug) {
+    notFound()
+  }
+
   const post = await getPost(slug)
   console.log('post', post)
+  console.log('slug', slug)
 
   if (!post) {
     notFound()
