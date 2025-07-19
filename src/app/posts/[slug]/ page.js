@@ -3,6 +3,7 @@ import { processMarkdown } from '@/lib/markdown'
 async function getPost(slug) {
   const fs = await import('fs/promises')
   const path = await import('path')
+  console.log('slug', slug)
   
   try {
     const fullPath = path.join(process.cwd(), 'posts', `${slug}.md`)

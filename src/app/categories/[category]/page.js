@@ -1,4 +1,5 @@
 import { getAllPosts } from '@/lib/api'
+import ArticleCard from '@/components/ArticleCard'
 
 export async function generateStaticParams() {
   const allPosts = await getAllPosts()

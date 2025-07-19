@@ -1,4 +1,4 @@
-import { processMarkdown } from '../../lib/markdown'
+import { processMarkdown } from '@/lib/markdown'
 import fs from 'fs'
 import path from 'path'
 
@@ -6,7 +6,6 @@ export async function getStaticProps({ params }) {
   const fullPath = path.join(process.cwd(), 'posts', `${params.slug}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { metadata, content } = await processMarkdown(fileContents)
-  
   return {
     props: {
       post: {
@@ -33,6 +32,7 @@ export async function getStaticPaths() {
 }
 
 export default function Post({ post }) {
+  console.log('pages-post')
   return (
     <article>
       <h1>{post.metadata.title}</h1>

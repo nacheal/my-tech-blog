@@ -13,12 +13,16 @@ export async function getAllPosts() {
       const fullPath = path.join(postsDirectory, fileName)
       const fileContents = await fs.readFile(fullPath, 'utf8')
       const { data, content } = matter(fileContents)
+      console.log('data',data )
+      const { featured, tags } = data
       
       return {
         slug,
         ...data,
         excerpt: content.substring(0, 150) + '...',
-        content
+        content,
+        featured,
+        tags
       }
     })
   )
