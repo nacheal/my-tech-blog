@@ -5,7 +5,7 @@ export default function Header() {
     <header className="bg-white shadow-sm sticky top-0 z-10">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/" className="text-2xl font-bold text-gray-800 hover:text-gray-600">
-          Michael's Tech Blog
+          Michael&apos;s Tech Blog
         </Link>
         
         <nav className="hidden md:flex space-x-8">

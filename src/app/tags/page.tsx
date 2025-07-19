@@ -8,7 +8,7 @@ async function getTagsData() {
 
   // 统计每个标签的文章数量
   allPosts.forEach(post => {
-    post.tags?.forEach(tag => {
+    post.tags?.forEach((tag: string) => {  // 显式指定 tag 为 string 类型
       tagsMap.set(tag, (tagsMap.get(tag) || 0) + 1)
     })
   })

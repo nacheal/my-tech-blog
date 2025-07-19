@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Footer() {
   return (
     <footer className="bg-gray-50 border-t mt-12">
@@ -13,10 +15,18 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">快速链接</h3>
             <ul className="space-y-2">
-              <li><a href="/" className="text-gray-600 hover:text-gray-900">首页</a></li>
-              <li><a href="/series" className="text-gray-600 hover:text-gray-900">系列文章</a></li>
-              <li><a href="/tags" className="text-gray-600 hover:text-gray-900">标签</a></li>
-              <li><a href="/about" className="text-gray-600 hover:text-gray-900">关于我</a></li>
+              <li>
+                <Link href="/" className="text-gray-600 hover:text-gray-900">首页</Link>
+              </li>
+              <li>
+                <Link href="/series" className="text-gray-600 hover:text-gray-900">系列文章</Link>
+              </li>
+              <li>
+                <Link href="/tags" className="text-gray-600 hover:text-gray-900">标签</Link>
+              </li>
+              <li>
+                <Link href="/about" className="text-gray-600 hover:text-gray-900">关于我</Link>
+              </li>
             </ul>
           </div>
           
@@ -31,7 +41,7 @@ export default function Footer() {
         </div>
         
         <div className="mt-8 pt-8 border-t text-center text-gray-500">
-          <p>© {new Date().getFullYear()} Michael's Tech Blog. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Michael&apos;s Tech Blog. All rights reserved.</p>
         </div>
       </div>
     </footer>
