@@ -10,8 +10,8 @@ export default function Header() {
         
         <nav className="hidden md:flex space-x-8">
           <Link href="/" className="text-gray-600 hover:text-gray-900">首页</Link>
-          <Link href="/series" className="text-gray-600 hover:text-gray-900">系列文章</Link>
-          <Link href="/tags" className="text-gray-600 hover:text-gray-900">标签</Link>
+          {/* <Link href="/series" className="text-gray-600 hover:text-gray-900">系列文章</Link>
+          <Link href="/tags" className="text-gray-600 hover:text-gray-900">标签</Link> */}
           <Link href="/about" className="text-gray-600 hover:text-gray-900">关于</Link>
         </nav>
         
