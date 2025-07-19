@@ -28,7 +28,7 @@ async function getData() {
 }
 
 export default async function Home() {
-  const { latestPosts, featuredPosts, series } = await getData()
+  const { latestPosts } = await getData()
 
   return (
     <Layout>
