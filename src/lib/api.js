@@ -36,8 +36,6 @@ export async function getPost(slug) {
     const fileContents = await fs.readFile(fullPath, 'utf8')
     const { data, content } = matter(fileContents)
     const { featured, tags, title, date } = data
-    console.log('data', data)
-    console.log('fullPath', fullPath)
     
     return {
       slug,
