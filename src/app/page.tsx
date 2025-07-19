@@ -1,9 +1,8 @@
 import ArticleCard from '@/components/ArticleCard'
-import Link from 'next/link'
 import { getAllPosts } from '@/lib/api'
+import Layout from '@/components/Layout'
 
 async function getData() {
-  // 实现获取所有文章的函数
   const allPosts = await getAllPosts()
   
   return {
@@ -32,27 +31,29 @@ export default async function Home() {
   const { latestPosts, featuredPosts, series } = await getData()
 
   return (
-    <div className="container mx-auto px-4">
-      {/* 英雄区 */}
-      <section className="my-12 text-center">
-        <h1 className="text-4xl font-bold mb-4">欢迎来到我的技术博客</h1>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-          专注分享React、TypeScript、Node.js等前端技术，记录开发中的思考与解决方案
-        </p>
-      </section>
+    <Layout>
+      <div className="container mx-auto px-4 py-8">
+        {/* 英雄区 */}
+        <section className="my-12 text-center">
+          <h1 className="text-4xl font-bold mb-4">欢迎来到我的技术博客</h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            专注分享React、TypeScript、Node.js等前端技术，记录开发中的思考与解决方案
+          </p>
+        </section>
 
-      {/* 最新文章 */}
-      <section className="mb-16">
-        <h2 className="text-2xl font-semibold mb-6 border-b pb-2">最新文章</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {latestPosts.map(post => (
-            <ArticleCard key={post.slug} post={post} />
-          ))}
-        </div>
-      </section>
+        {/* 最新文章 */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-semibold mb-6 border-b pb-2">最新文章</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {latestPosts.map(post => (
+              <ArticleCard key={post.slug} post={post} />
+            ))}
+          </div>
+        </section>
 
-      {/* 其他部分保持不变 */}
-      {/* ... */}
-    </div>
+        {/* 其他部分保持不变 */}
+        {/* ... */}
+      </div>
+    </Layout>
   )
 }
