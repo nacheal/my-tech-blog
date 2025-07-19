@@ -3,7 +3,7 @@ import Link from 'next/link'
 export default function ArticleCard({ post }) {
   return (
     <div className="border rounded-lg overflow-hidden hover:shadow-lg transition">
-      <Link href={`/posts/${post.slug}`}>
+      <Link href={`/blog/${post.slug}`}>
         <div className="h-48 bg-gray-200 flex items-center justify-center">
           {post?.metadata?.image ? (
             <img 
