@@ -3,24 +3,11 @@ import Layout from '@/components/Layout'
 import PostHeader from '@/components/PostHeader'
 import PostFooter from '@/components/PostFooter'
 import { notFound } from 'next/navigation'
+import { getPost } from '@/lib/api'
 
 interface Props {
   params: Promise<{ slug?: string }>; // Updated to be a Promise
 }
-
-async function getPost(slug: string) {
-  const fs = await import('fs/promises')
-  const path = await import('path')
-  
-  try {
-    const fullPath = path.join(process.cwd(), 'posts', `${slug}.md`)
-    const fileContents = await fs.readFile(fullPath, 'utf8')
-    return await processMarkdown(fileContents)
-  } catch (error) {
-    return null
-  }
-}
-
 
 export default async function PostPage({ params }: Props) {
   const restparams = await params
@@ -45,10 +32,9 @@ export default async function PostPage({ params }: Props) {
         <div className="flex flex-col lg:flex-row gap-8">
           <article className="prose lg:prose-xl max-w-4xl flex-grow">
             <PostHeader 
-              title={post.metadata.title}
-              date={post.metadata.date}
-              tags={post.metadata.tags}
-              readingTime={post.metadata.readingTime}
+              title={post.title}
+              date={post.date}
+              tags={post.tags}
             />
             
             <div 

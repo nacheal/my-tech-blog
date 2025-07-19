@@ -28,3 +28,30 @@ export async function getAllPosts() {
   
   return posts.sort((a, b) => new Date(b.date) - new Date(a.date))
 }
+
+export async function getPost(slug) {
+  const fullPath = path.join(postsDirectory, `${slug}.md`)
+  
+  try {
+    const fileContents = await fs.readFile(fullPath, 'utf8')
+    const { data, content } = matter(fileContents)
+    const { featured, tags, title, date } = data
+    console.log('data', data)
+    console.log('fullPath', fullPath)
+    
+    return {
+      slug,
+      ...data,
+      title,
+      date,
+      content,
+      featured,
+      tags
+    }
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      return null // Return null if the post doesn't exist
+    }
+    throw error // Re-throw other errors
+  }
+}
