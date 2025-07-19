@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import 'prismjs/themes/prism-tomorrow.css'
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import "./globals.css";
 
 const geistSans = Geist({
@@ -22,6 +24,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  console.log('layout')
   return (
     <html lang="en">
       <body
